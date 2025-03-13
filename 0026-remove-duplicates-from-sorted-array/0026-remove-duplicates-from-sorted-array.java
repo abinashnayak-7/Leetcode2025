@@ -1,6 +1,6 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        if(nums.length == 0){ //edge case
+      if(nums.length == 0){ //edge case
             return 0;
         }
         int n = nums.length;
@@ -14,3 +14,5 @@ class Solution {
         return k + 1;
     }
 }
+
+ 

@@ -7,11 +7,11 @@ class Solution {
         for (int i = 0; i < n; i++) {
             currentSum += nums[i];
 
-            if (currentSum <= 0) {
+            maxSum = Math.max(maxSum, currentSum);
+
+            if (currentSum <= 0) { // Kadane's Algorithm
                 currentSum = 0;
             }
-
-            maxSum = Math.max(maxSum, currentSum);
         }
         return maxSum;
     }

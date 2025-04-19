@@ -8,10 +8,10 @@ class Solution {
 
         while (left < right) {
             int ht = Math.min(height[left], height[right]);
-            int wid = right - left;
+            int wd = right - left;
 
-            int currentWater = ht * wid; // evaluating area
-            maxWater = Math.max(currentWater, maxWater); // updating maxWater
+            int currWater = ht * wd;
+            maxWater = Math.max(currWater, maxWater);
 
             if (height[left] < height[right]) {
                 left++;

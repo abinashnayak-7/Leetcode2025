@@ -1,24 +1,26 @@
+import java.util.Arrays;
+
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        int m = nums1.length;
-        int n = nums2.length;
+        int freqArr[] = new int[1001];
+        for (int num : nums1) {
+            freqArr[num]++;
+        }
 
-        int[] intersection = new int[Math.min(m, n)];
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        while (i < m && j < n) {
-            if (nums1[i] == nums2[j]) {
-                intersection[k++] = nums1[i++];
-                j++;
-            } else if (nums1[i] < nums2[j]) {
-                i++;
-            } else {
-                j++;
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int num : nums2) {
+            if (freqArr[num] > 0) {
+                list.add(num);
+                freqArr[num]--;
             }
         }
-        return Arrays.copyOf(intersection, k);
+
+        int k = list.size();
+        int res[] = new int[k];
+        for (int i = 0; i < k; i++) {
+            res[i] = list.get(i);
+        }
+
+        return res;
     }
 }
